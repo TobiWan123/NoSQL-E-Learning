@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 // @ts-ignore
-import { getDatabase, ref, set } from 'firebase/database';
+// import { getDatabase, ref, set } from 'firebase/database';
 
 export interface PeriodicElement {
   name: string;
@@ -37,11 +37,11 @@ export class Inhalt11Component implements OnInit {
 
   }
 
-  public writeUserData(key, value): void {
+  /*public writeUserData(key, value): void {
     const db = getDatabase();
     set(ref(db, 'keyValueDb/' + key), {
       data: value
     });
-  }
+  }*/
 
 }
