@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-// @ts-ignore
-// import { getDatabase, ref, set } from 'firebase/database';
+
+import {AngularFireDatabase} from '@angular/fire/compat/database';
+import {Observable} from 'rxjs';
+import {MatTableDataSource} from '@angular/material/table';
 
 export interface PeriodicElement {
   name: string;
@@ -29,19 +31,14 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class Inhalt11Component implements OnInit {
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  inhalt: Observable<any> = this.db.object('/kapitel/kapitel1').valueChanges();
   dataSource = ELEMENT_DATA;
 
-  constructor() { }
+  constructor(public db: AngularFireDatabase){}
 
   ngOnInit(): void {
-
+    this.inhalt.subscribe(val => console.log(val));
   }
 
-  /*public writeUserData(key, value): void {
-    const db = getDatabase();
-    set(ref(db, 'keyValueDb/' + key), {
-      data: value
-    });
-  }*/
 
 }

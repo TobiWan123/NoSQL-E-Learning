@@ -11,6 +11,7 @@ export const environment = {
     storageBucket: 'nosql---elearning-module.appspot.com',
     messagingSenderId: '1073818524137',
     appId: '1:1073818524137:web:a92e30ccb6a4fac2f5d378',
+    databaseURL: 'https://nosql---elearning-module-default-rtdb.europe-west1.firebasedatabase.app',
     measurementId: 'G-66R5KWCW6M'
   }
 };
