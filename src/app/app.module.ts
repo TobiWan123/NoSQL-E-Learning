@@ -1,9 +1,10 @@
  import { BrowserModule } from '@angular/platform-browser';
  import { NgModule } from '@angular/core';
-
  import { AppRoutingModule } from './app-routing.module';
  import { AppComponent } from './app.component';
  import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+ // Angular Material
  import {MatToolbarModule} from '@angular/material/toolbar';
  import {MatIconModule} from '@angular/material/icon';
  import {MatTableModule} from '@angular/material/table';
@@ -14,10 +15,17 @@
  import {MatSidenavModule} from '@angular/material/sidenav';
  import {MatListModule} from '@angular/material/list';
  import {MatTabsModule} from '@angular/material/tabs';
-import { KapitelComponent } from './kapitel/kapitel.component';
-import { Inhalt11Component } from './kapitel-inhalt-1/inhalt11/inhalt11.component';
-import { ToolbarComponent } from './toolbar/toolbar.component';
-import { NavigationComponent } from './navigation/navigation.component';
+
+ // Firebase
+ import {AngularFireModule} from 'angularfire2';
+ import {AngularFireDatabaseModule} from 'angularfire2/database';
+
+ // App
+ import { KapitelComponent } from './kapitel/kapitel.component';
+ import { Inhalt11Component } from './kapitel-inhalt-1/inhalt11/inhalt11.component';
+ import { ToolbarComponent } from './toolbar/toolbar.component';
+ import { NavigationComponent } from './navigation/navigation.component';
+ import {environment} from '../environments/environment';
 
  @NgModule({
   declarations: [
@@ -40,7 +48,9 @@ import { NavigationComponent } from './navigation/navigation.component';
      FlexLayoutModule,
      MatSidenavModule,
      MatListModule,
-     MatTabsModule
+     MatTabsModule,
+     AngularFireModule.initializeApp(environment.firebase),
+     AngularFireDatabaseModule
    ],
   providers: [],
   bootstrap: [AppComponent]
