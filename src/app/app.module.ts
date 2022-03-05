@@ -17,8 +17,10 @@
  import {MatTabsModule} from '@angular/material/tabs';
 
  // Firebase
- import {AngularFireModule} from 'angularfire2';
- import {AngularFireDatabaseModule} from 'angularfire2/database';
+ import {AngularFireModule} from '@angular/fire/compat';
+ import {AngularFirestoreModule} from '@angular/fire/compat/firestore';
+ import {AngularFireStorageModule} from '@angular/fire/compat//storage';
+ import {AngularFireAuthModule} from '@angular/fire/compat/auth';
 
  // App
  import { KapitelComponent } from './kapitel/kapitel.component';
@@ -50,7 +52,9 @@
      MatListModule,
      MatTabsModule,
      AngularFireModule.initializeApp(environment.firebase),
-     AngularFireDatabaseModule
+     AngularFirestoreModule, // firestore
+     AngularFireAuthModule, // auth
+     AngularFireStorageModule // storage
    ],
   providers: [],
   bootstrap: [AppComponent]
