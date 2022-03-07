@@ -5,6 +5,10 @@
     "outDir": "./out-tsc/app",
     "types": []
   },
+  "angularCompilerOptions": {
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true
+  },
   "files": [
     "src/main.ts",
     "src/polyfills.ts"
@@ -13,3 +17,4 @@
     "src/**/*.d.ts"
   ]
 }
+

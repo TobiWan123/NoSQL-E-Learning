@@ -10,7 +10,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; overflow: h
 
 ::-webkit-scrollbar-thumb{
   background: #424242;
-  border-radius: 0px;
   height: 100px;
 }
 
@@ -26,4 +25,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; overflow: h
 
 .a:hover{
   color: #C2185B;
+}
+
+.container{
+  width: 100%;
+  height: auto;
 }

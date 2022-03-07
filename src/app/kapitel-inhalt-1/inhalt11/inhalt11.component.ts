@@ -2,27 +2,16 @@ import { Component, OnInit } from '@angular/core';
 
 import {AngularFireDatabase} from '@angular/fire/compat/database';
 import {Observable} from 'rxjs';
-import {MatTableDataSource} from '@angular/material/table';
 
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
+export interface Inhalt11Data {
+  id: number;
+  keyValuePairs: KeyValue<any, any>[];
 }
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
-];
+export interface KeyValue<a, k> {
+  key: a;
+  value: k;
+}
 
 @Component({
   selector: 'app-inhalt11',
@@ -30,14 +19,17 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./inhalt11.component.scss']
 })
 export class Inhalt11Component implements OnInit {
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  inhalt: Observable<any> = this.db.object('/kapitel/kapitel1').valueChanges();
-  dataSource = ELEMENT_DATA;
+  displayedColumns: string[] = ['key', 'value'];
+  inhalt: Observable<any> = this.db.object('/inhalt/inhalt11').valueChanges();
+  dataSource: KeyValue<string, string>[];
 
   constructor(public db: AngularFireDatabase){}
 
   ngOnInit(): void {
-    this.inhalt.subscribe(val => console.log(val));
+    this.inhalt.subscribe(val => {
+      const data: Inhalt11Data = val;
+      this.dataSource = data.keyValuePairs;
+    });
   }
 
 

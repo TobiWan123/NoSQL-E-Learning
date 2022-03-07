@@ -1,5 +1,33 @@
 table {
-  width: 100%;
+  width: 50%;
   height: 100%;
-  margin: 0 auto;
+}
+
+.explanation {
+  text-align: left;
+  width: 90%;
+  margin: 20px;
+}
+
+.keyValueConsole{
+  width: 90%;
+  height: 100px;
+  margin: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+mat-form-field  {
+  margin-right: 10px;
+}
+
+button {
+  height: 50px;
+  width: 175px;
+  background: #C2185B;
+  color: white;
+}
+
+.container {
+  display: flex;
 }

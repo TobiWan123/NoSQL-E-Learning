@@ -15,6 +15,8 @@
  import {MatSidenavModule} from '@angular/material/sidenav';
  import {MatListModule} from '@angular/material/list';
  import {MatTabsModule} from '@angular/material/tabs';
+ import {MatFormFieldModule} from '@angular/material/form-field';
+ import {MatSelectModule} from '@angular/material/select';
 
  // Firebase
  import {AngularFireModule} from '@angular/fire/compat';
@@ -23,10 +25,10 @@
  import {AngularFireAuthModule} from '@angular/fire/compat/auth';
 
  // App
- import { KapitelComponent } from './kapitel/kapitel.component';
- import { Inhalt11Component } from './kapitel-inhalt-1/inhalt11/inhalt11.component';
- import { ToolbarComponent } from './toolbar/toolbar.component';
- import { NavigationComponent } from './navigation/navigation.component';
+ import {KapitelComponent} from './kapitel/kapitel.component';
+ import {Inhalt11Component} from './kapitel-inhalt-1/inhalt11/inhalt11.component';
+ import {ToolbarComponent} from './toolbar/toolbar.component';
+ import {NavigationComponent} from './navigation/navigation.component';
  import {environment} from '../environments/environment';
 
  @NgModule({
@@ -51,12 +53,15 @@
      MatSidenavModule,
      MatListModule,
      MatTabsModule,
+     MatFormFieldModule,
+     MatSelectModule,
      AngularFireModule.initializeApp(environment.firebase),
      AngularFirestoreModule, // firestore
      AngularFireAuthModule, // auth
      AngularFireStorageModule // storage
    ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
