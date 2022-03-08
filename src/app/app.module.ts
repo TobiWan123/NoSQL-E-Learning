@@ -30,6 +30,7 @@
  import {ToolbarComponent} from './toolbar/toolbar.component';
  import {NavigationComponent} from './navigation/navigation.component';
  import {environment} from '../environments/environment';
+ import {FormsModule} from '@angular/forms';
 
  @NgModule({
   declarations: [
@@ -43,6 +44,7 @@
      BrowserModule,
      AppRoutingModule,
      BrowserAnimationsModule,
+     FormsModule,
      MatToolbarModule,
      MatIconModule,
      MatTableModule,

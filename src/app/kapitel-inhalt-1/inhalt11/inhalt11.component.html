@@ -11,26 +11,55 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
-  <div>
+  <div class="keyValueContainer">
     <div class="explanation">
       <h2>Aufbau und Funktion einer KeyValue Datenbank</h2>
-      <br>
-      <p>............</p>
+      <p>
+        Links ist eine KeyValue-Datenbank zu sehen. Eine Key-Value Datenbank ist eine Form einer NoSQL-Datenbank.
+        Ein Datensatz wird in dieser Datenbank unter einem einzigartigen Schlüssel und einem zugehörigen Wert
+        gespeichert.
+        Die Struktur der Datenbank entspricht dabei der einer Tabelle.
+        <br>
+        Über die unter Schaltfläche lassen sich Abfragen auf die Datenbank ausführen
+        Unter den Abfragen lassen sich die folgendende Typen auswählen:
+      </p>
+      <ul>
+        <li>
+          <p>Create:  Erstellt einen neuen Wert in der Datenbank.</p>
+        </li>
+        <li>
+          <p>Read:    Liest einen Wert aus der Datenbank aus.</p>
+        </li>
+        <li>
+          <p>Update:  Verändert einen bereits bestehenden Wert.</p>
+        </li>
+        <li>
+          <p>Delete:  Löscht einen bestehenden Wert aus der Datenbank.</p>
+        </li>
+      </ul>
+      <p>
+        Aufgabe:
+        <br>
+        Wähle einen Befehl aus und trage Werte in der Form "Schlüssel:Wert" entsprechend der ausgewählten Abfrage ein.
+        Mache dich mit der Struktur der Datenbank vetraut und beobachte die Auswirkungen der verschiedenen Abfragen auf die Datenbank.
+      </p>
     </div>
     <div class="keyValueConsole">
       <mat-form-field appearance="fill">
-        <mat-label>Input</mat-label>
-        <input matInput>
-      </mat-form-field>
-      <mat-form-field appearance="fill">
         <mat-label>Select</mat-label>
-        <mat-select>
-          <mat-option value="one">First option</mat-option>
-          <mat-option value="two">Second option</mat-option>
+        <mat-select [(value)]="currenSelection" (selectionChange)="setInputHints($event)">
+          <mat-option value="create">create</mat-option>
+          <mat-option value="read">read</mat-option>
+          <mat-option value="update">update</mat-option>
+          <mat-option value="delete">delete</mat-option>
         </mat-select>
       </mat-form-field>
-      <button mat-button color="accent">Bestätigen</button>
+      <mat-form-field appearance="fill">
+        <mat-label>Input</mat-label>
+        <input [(ngModel)]="inputValue" matInput>
+      </mat-form-field>
+      <button mat-button (click)="createFirebaseRequest();">{{currenSelection}}</button>
     </div>
+    <h3 style="margin: 20px">{{message}}</h3>
   </div>
 </div>
-
