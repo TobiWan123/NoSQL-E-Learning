@@ -5,12 +5,12 @@ table {
 
 .explanation {
   text-align: left;
-  width: 100%;
+  width: 95%;
   margin: 20px;
 }
 
 .keyValueConsole{
-  width: 100%;
+  width: 95%;
   height: 100px;
   margin: 20px;
   display: flex;
@@ -22,7 +22,6 @@ button {
   width: 30%;
   background: #C2185B;
   color: white;
-  margin-right: 2%;
 }
 
 mat-form-field {
@@ -31,6 +30,7 @@ mat-form-field {
 
 .container {
   display: flex;
+  padding-right: 20px;
 }
 
 .keyValueContainer{
